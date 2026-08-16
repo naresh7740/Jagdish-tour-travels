@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Your Site — Simple Starter</title>
+  <meta name="description" content="A simple single-page starter site (Hero, About, Projects, Contact) built with Tailwind CSS." />
+  <!-- Tailwind CDN (good for quick prototypes) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Optional: basic Tailwind config
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#06b6d4' /* teal-400 */,
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Inline SVG favicon -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2306b6d4'/%3E%3Ctext x='50' y='57' font-size='50' text-anchor='middle' fill='white' font-family='Arial, Helvetica, sans-serif'%3EY%3C/text%3E%3C/svg%3E">
+  <style>
+    /* Small helper for smooth scroll offset on mobile if needed */
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="antialiased text-gray-800 bg-white">
+  <!-- NAV -->
+  <header class="bg-white/80 backdrop-blur sticky top-0 z-30">
+    <div class="max-w-6xl mx-auto px-6">
+      <nav class="flex items-center justify-between h-16">
+        <a href="#home" class="flex items-center gap-3">
+          <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="5" fill="#06b6d4"/><text x="12" y="17" text-anchor="middle" font-size="12" fill="#fff">Y</text></svg>
+          <span class="font-semibold">YourSite</span>
+        </a>
+        <div class="hidden md:flex gap-6 items-center">
+          <a href="#about" class="hover:text-primary">About</a>
+          <a href="#projects" class="hover:text-primary">Projects</a>
+          <a href="#contact" class="hover:text-primary">Contact</a>
+          <a href="#contact" class="ml-4 inline-flex items-center rounded-md bg-primary text-white px-4 py-2 text-sm">Get in touch</a>
+        </div>
+
+        <!-- Mobile button -->
+        <div class="md:hidden">
+          <button id="nav-toggle" aria-label="Toggle menu" class="p-2 rounded-md hover:bg-gray-100">
+            <svg id="nav-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <svg id="nav-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden hidden border-t">
+      <div class="px-6 py-4 flex flex-col gap-3">
+        <a href="#about" class="block">About</a>
+        <a href="#projects" class="block">Projects</a>
+        <a href="#contact" class="block">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="home" class="pt-12">
+    <!-- HERO -->
+    <section class="max-w-6xl mx-auto px-6 py-16 flex flex-col-reverse lg:flex-row items-center gap-12">
+      <div class="lg:w-1/2">
+        <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">
+          Build something <span class="text-primary">great</span> — quickly.
+        </h1>
+        <p class="mt-4 text-gray-600 max-w-xl">
+          A clean, responsive starter to showcase your work or business. Edit the text, swap images, and deploy — zero build step required.
+        </p>
+        <div class="mt-6 flex gap-3">
+          <a href="#projects" class="inline-block rounded-md bg-primary text-white px-5 py-3">See projects</a>
+          <a href="#contact" class="inline-block rounded-md border border-gray-200 px-5 py-3">Contact</a>
+        </div>
+        <ul class="mt-8 flex flex-wrap gap-4 text-sm text-gray-500">
+          <li>Fast</li>
+          <li>Responsive</li>
+          <li>Easy to customize</li>
+        </ul>
+      </div>
+      <div class="lg:w-1/2 flex justify-center">
+        <div class="w-full max-w-md rounded-xl overflow-hidden shadow-lg">
+          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&q=60&auto=format&fit=crop" alt="Hero image" class="w-full object-cover h-64 sm:h-80">
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="bg-gray-50">
+      <div class="max-w-6xl mx-auto px-6 py-16">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h2 class="text-2xl font-semibold">About</h2>
+            <p class="mt-4 text-gray-600">
+              This starter is ideal for a portfolio, landing page, or small business site. It's intentionally minimal so you can iterate quickly.
+            </p>
+            <ul class="mt-6 grid grid-cols-2 gap-4 text-sm text-gray-600">
+              <li><strong>Static</strong><div class="text-xs">No backend required</div></li>
+              <li><strong>Tailwind</strong><div class="text-xs">CDN for fast prototyping</div></li>
+              <li><strong>Deploy</strong><div class="text-xs">GitHub Pages, Netlify, Vercel</div></li>
+              <li><strong>Accessible</strong><div class="text-xs">Semantic HTML basics</div></li>
+            </ul>
+          </div>
+          <div>
+            <div class="rounded-lg bg-white p-6 shadow-sm border">
+              <h3 class="font-medium">Quick facts</h3>
+              <p class="text-sm mt-3 text-gray-600">Edit index.html, replace images and sections, or extend into a multi-page app with a framework later.</p>
+              <div class="mt-4 flex gap-3">
+                <span class="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Starter</span>
+                <span class="inline-block bg-gray-100 px-3 py-1 rounded-full text-sm">Static</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="max-w-6xl mx-auto px-6 py-16">
+      <h2 class="text-2xl font-semibold">Projects</h2>
+      <p class="text-gray-600 mt-2">A few highlights — replace these with your own work.</p>
+      <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card -->
+        <article class="bg-white rounded-lg shadow border overflow-hidden">
+          <img class="w-full h-40 object-cover" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=60&auto=format&fit=crop" alt="Project 1">
+          <div class="p-4">
+            <h3 class="font-semibold">Project One</h3>
+            <p class="text-sm text-gray-600 mt-2">Short description of the project; what it does and why it matters.</p>
+            <div class="mt-4 flex justify-between items-center">
+              <a href="#" class="text-primary text-sm">View</a>
+              <span class="text-xs text-gray-500">2026</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="bg-white rounded-lg shadow border overflow-hidden">
+          <img class="w-full h-40 object-cover" src="https://images.unsplash.com/photo-1526378721416-0d4a9c42b0b8?w=800&q=60&auto=format&fit=crop" alt="Project 2">
+          <div class="p-4">
+            <h3 class="font-semibold">Project Two</h3>
+            <p class="text-sm text-gray-600 mt-2">Short description of the project; technologies used and key result.</p>
+            <div class="mt-4 flex justify-between items-center">
+              <a href="#" class="text-primary text-sm">View</a>
+              <span class="text-xs text-gray-500">2025</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="bg-white rounded-lg shadow border overflow-hidden">
+          <img class="w-full h-40 object-cover" src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=800&q=60&auto=format&fit=crop" alt="Project 3">
+          <div class="p-4">
+            <h3 class="font-semibold">Project Three</h3>
+            <p class="text-sm text-gray-600 mt-2">Short description or link to case study.</p>
+            <div class="mt-4 flex justify-between items-center">
+              <a href="#" class="text-primary text-sm">View</a>
+              <span class="text-xs text-gray-500">2024</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="bg-gray-50">
+      <div class="max-w-3xl mx-auto px-6 py-16">
+        <h2 class="text-2xl font-semibold">Contact</h2>
+        <p class="text-gray-600 mt-2">Want to work together? Send a message or email me directly.</p>
+
+        <div class="mt-6 bg-white rounded-lg shadow border p-6">
+          <form id="contact-form" action="javascript:void(0)" class="grid gap-4">
+            <div class="grid sm:grid-cols-2 gap-4">
+              <input placeholder="Your name" name="name" required class="border rounded px-3 py-2" />
+              <input placeholder="Email" type="email" name="email" required class="border rounded px-3 py-2" />
+            </div>
+            <input placeholder="Subject" name="subject" class="border rounded px-3 py-2" />
+            <textarea placeholder="Message" name="message" rows="5" required class="border rounded px-3 py-2"></textarea>
+
+            <div class="flex items-center gap-3">
+              <button id="send-btn" class="inline-flex items-center bg-primary text-white px-4 py-2 rounded">Send message</button>
+              <span id="form-status" class="text-sm text-gray-600 hidden">Sending...</span>
+            </div>
+            <p class="text-xs text-gray-500 mt-2">This form is client-only — by default it will open your email. See README to connect a form backend.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t">
+      <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-gray-600">
+        <div>© <span id="year"></span> Your Name. All rights reserved.</div>
+        <div class="flex gap-3">
+          <a href="#" class="hover:text-primary">Privacy</a>
+          <a href="#" class="hover:text-primary">Terms</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.getElementById('nav-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navOpen = document.getElementById('nav-open');
+    const navClose = document.getElementById('nav-close');
+    navToggle?.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      navOpen.classList.toggle('hidden');
+      navClose.classList.toggle('hidden');
+    });
+
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Contact form: opens mail client with prefilled content (fallback without backend)
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const name = data.get('name') || '';
+      const email = data.get('email') || '';
+      const subject = data.get('subject') || 'Message from website';
+      const message = data.get('message') || '';
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+      const mailto = `mailto:you@example.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+      status.classList.remove('hidden');
+      status.textContent = 'Opening your mail app...';
+      window.location.href = mailto;
+      setTimeout(() => { status.classList.add('hidden'); }, 2000);
+    });
+  </script>
+</body>
+</html>
